@@ -18,7 +18,7 @@ public class Charmander extends Creature
     public Charmander(World w)
     {
         //TODO (48): Add a third parameter of Fire to this super line
-        super(700, 1);
+        super(700, 1, "Fire");
         getImage().scale(150, 100);
         w.addObject( getHealthBar() , 300, w.getHeight() - 50 );
     }
@@ -59,7 +59,27 @@ public class Charmander extends Creature
      * TODO (63): Set the turn number to player two's turn (Use the setTurnNumber method of playerWorld to change the turn number to 2)
      */
     
-
+    /**
+     * attack is the method used for the enemy health when you get attacked which works with
+     * the FightCommands
+     * 
+     * @params There is one parameter for idx.
+     * @returns There are no return types.
+     */
+public void attack(int idx)
+{
+    CreatureWorld playerWorld = (CreatureWorld) getWorld();
+    Creature enemy = playerWorld.getPlayerTwo();
+    String enemyType = enemy.getType();
+    if(idx == 0)
+    {
+        enemy.getHealthBar().add(-25);
+    }
     
-
+    else
+    {
+        enemy.getHealthBar().add(-70);
+    }
+    playerWorld.setTurnNumber(2);
+}
 }

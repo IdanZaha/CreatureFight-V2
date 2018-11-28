@@ -93,32 +93,48 @@ public class Menu extends Actor
         MouseInfo mi;
         
         //TODO (32): Declare a local CreatureWorld variable called world that is initialized to a reference to the CreatureWorld (remember this requires casting)
-        
+        CreatureWorld world = (CreatureWorld) getWorld();
         
         //TODO (33): Declare an local integer variable called distance that is not initialized
+        int distance;
         
-
         //TODO (34): If the turn number is equal to one... (You'll need to use the getTurnNumber method of the world)
-        
+        if(world.getTurnNumber() == 1)
+        {
+               
             //TODO (35): If the text of the titleBar equals (ignoring case) the word Fight...
-            
+            if(titleBar.getText().equalsIgnoreCase("Fight"))
+            {
                 //TODO (36): Initialize the distance variable to 35
-                
+                distance = 35;
+            }
             //TODO (37): Otherwise...
-            
+            else
+            {
                 //TODO (38): Initialize the distance variable to 195
                 
-        //TODO (39): Otherwise...
-        
-            //TODO (40): If the text of the titleBar equals (ignoring case) the word Fight...
-            
-                //TODO (41): Initialize the distance variable to 362
-                
-            //TODO (42): Otherwise...
-            
-                //TODO (43): Initialize the distance variable to 195
-                
+                distance = 195;
+            }
+        }
+    
 
+        //TODO (39): Otherwise...
+        else
+        {
+            //TODO (40): If the text of the titleBar equals (ignoring case) the word Fight...
+            if(titleBar.getText().equalsIgnoreCase("Fight"))
+            {
+                //TODO (41): Initialize the distance variable to 362
+                distance = 362;
+            }
+            
+            //TODO (42): Otherwise...
+            else
+            {
+                //TODO (43): Initialize the distance variable to 195
+                distance = 195;
+            }   
+        }
         
         if(Greenfoot.mouseClicked(titleBar) == true)
         {
@@ -142,7 +158,7 @@ public class Menu extends Actor
             getWorld().removeObject(menuItems);
             
             //TODO (44): Access the execute method of the menuCommands variable using the menuIndex variable and getObjectsInRange( distance, Creature.class ).get(0) as the parameters for execute 
-            
-        }    
-    }   
+            menuCommands.execute(menuIndex, getObjectsInRange( distance, Creature.class ).get(0));
+        }
+    }
 }

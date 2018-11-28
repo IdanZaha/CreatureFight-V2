@@ -18,7 +18,7 @@ public class Pikachu extends Creature
     public Pikachu(World w)
     {
         //TODO (49): Add a third parameter of Electric to this super line
-        super(650, 2);
+        super(650, 2, "Electric");
         getImage().scale(150, 100);
         w.addObject( getHealthBar() , 100, 25 );
     }
@@ -58,5 +58,26 @@ public class Pikachu extends Creature
      *      
      * TODO (72): Set the turn number to player one's turn
      */
-    
+        /**
+     * attack is the method used for the enemy health when you get attacked which works with
+     * the FightCommands
+     * 
+     * @params There is one parameter for idx.
+     * @returns There are no return types.
+     */
+    public void attack(int idx)
+    {
+        CreatureWorld playerWorld = (CreatureWorld) getWorld();
+        Creature enemy = playerWorld.getPlayerOne();
+        String enemyType = enemy.getType();  
+        if(idx == 0)
+        {
+            enemy.getHealthBar().add(-30);    
+        }
+        else
+        {
+            enemy.getHealthBar().add(-65);
+        }
+        playerWorld.setTurnNumber(1);
+    }
 }

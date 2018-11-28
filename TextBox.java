@@ -73,4 +73,14 @@ public class TextBox extends Actor
      *           
      * TODO (31): Inside the getText method, simply return value
      */
+    /**
+     * getText is used for returning a String that has no parameters.
+     * 
+     * @params There are no parameters.
+     * @returns There is one return type that returns a String.
+     */
+    public String getText()
+    {
+        return value;
+    }
 }

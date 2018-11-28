@@ -19,7 +19,7 @@ public class FightCommands implements MenuCommands
     public void execute( int idx, Creature c )
     {
         //TODO (54): Inside the execute method, use the attack method of the Creature class by accessing it through the c parameter
- 
+        c.attack(idx);
+        
     }
-    
 }

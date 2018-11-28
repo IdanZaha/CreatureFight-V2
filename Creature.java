@@ -13,7 +13,7 @@ public class Creature extends Actor
     private int playerOwnership;
     
     //TODO (45): Declare a String instance variable called type 
-    
+    private String type;
 
     /**
      * Default constructor for objects of the Creature class
@@ -36,14 +36,14 @@ public class Creature extends Actor
      * @return an object of the Creature class
      */
     //TODO (46): Add a third parameter to this method signature, a String parameter called creatureType (change the method comment block accordingly)
-    public Creature( int health, int whichPlayer )
+    public Creature( int health, int whichPlayer, String creatureType )
     {
         healthNumber = health;
         playerOwnership = whichPlayer;
         creatureBar = new HealthBar(healthNumber, healthNumber, 10);
         
         //TODO (47): Initialize the type variable to the creatureType parameter
-        
+        type = creatureType;
     }
     
     /**
@@ -65,7 +65,17 @@ public class Creature extends Actor
      * TODO (51): Inside the method, put a comment stating that attack is an
      *            "empty method that will get overridden in subclasses
      */
-    
+    /**
+     * attack is used to be a overiden method in the FightCommands class so you are able to 
+     * use the attack when you click on a certain attack.
+     * 
+     * @param There is one parameter that is used for idx.
+     * @return There are no return types.
+     */
+    public void attack(int idx)
+    {
+        // empty method that will get overidden in subclasses
+    }
 
     /**
      * getHealthBar returns the health bar for this creature
@@ -98,6 +108,14 @@ public class Creature extends Actor
      * 
      * TODO (53): Inside the method, return the type of the Creature
      */
-    
-
+    /**
+     * getType is used to return the string "type".
+     * 
+     * @param There are no paramets.
+     * @returns There is one parameter used to return type.
+     */
+    protected String getType()
+    {
+        return type;
+    }
 }
